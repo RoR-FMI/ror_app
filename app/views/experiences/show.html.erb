@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Start time:</b>
+  <%= @experience.start_time %>
+</p>
+
+<p>
+  <b>End time:</b>
+  <%= @experience.end_time %>
+</p>
+
+<p>
+  <b>Job title:</b>
+  <%= @experience.job_title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @experience.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_experience_path(@experience) %> |
+<%= link_to 'Back', experiences_path %>

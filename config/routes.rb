@@ -1,4 +1,5 @@
 RorApp::Application.routes.draw do
+
   resources :companies
 
   resources :educations
@@ -8,6 +9,13 @@ RorApp::Application.routes.draw do
   resources :cvs
 
   resources :users
+
+  root to: 'static_pages#home'
+
+  match '/about', to: 'static_pages#about'
+  match '/contact', to: 'static_pages#contact'
+
+  match '/signup', to: 'users#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

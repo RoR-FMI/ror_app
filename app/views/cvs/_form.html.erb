@@ -1,16 +1,5 @@
+<div class="cv_form">
 <%= form_for(@cv) do |f| %>
-  <% if @cv.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@cv.errors.count, "error") %> prohibited this cv from being saved:</h2>
-
-      <ul>
-      <% @cv.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="field">
     <%= f.label :about %><br />
     <%= f.text_field :about %>
@@ -24,6 +13,7 @@
     <%= f.text_field :contact_email %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Add general informations to CV"%>
   </div>
 <% end %>
+</div>

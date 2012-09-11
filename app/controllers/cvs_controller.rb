@@ -25,11 +25,6 @@ class CvsController < ApplicationController
   # GET /cvs/new.json
   def new
     @cv = Cv.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @cv }
-    end
   end
 
   # GET /cvs/1/edit
@@ -37,20 +32,17 @@ class CvsController < ApplicationController
     @cv = Cv.find(params[:id])
   end
 
-  # POST /cvs
-  # POST /cvs.json
   def create
     @cv = Cv.new(params[:cv])
+    @cv.user_id = params[:id]
 
-    respond_to do |format|
       if @cv.save
-        format.html { redirect_to @cv, notice: 'Cv was successfully created.' }
-        format.json { render json: @cv, status: :created, location: @cv }
+      redirect_to @user
+      flash[:notice] = "Your CV was successufully saved!"
       else
-        format.html { render action: "new" }
-        format.json { render json: @cv.errors, status: :unprocessable_entity }
+        flash[:notice] = "Something is wrong!"
+        render action: 'new'
       end
-    end
   end
 
   # PUT /cvs/1

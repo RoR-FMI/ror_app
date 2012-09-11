@@ -8,4 +8,8 @@ module ApplicationHelper
       "#{default_title} | #{page_title}"
     end
   end
+
+  def new_cv(user)
+  render :action => "/new_cv"
+  end
 end

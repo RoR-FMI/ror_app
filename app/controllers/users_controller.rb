@@ -15,6 +15,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
+    @cv = Cv.new
+    @experience = Experience.new
+    @education = Education.new
+    @company =Company.new
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
@@ -25,11 +30,6 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @user }
-    end
   end
 
   # GET /users/1/edit
@@ -45,9 +45,9 @@ class UsersController < ApplicationController
       if @user.save
         sign_in @user
         redirect_to @user
-        flash[:notice] = "User was successfully created."
+        flash[:success] = "Your're account was successfully created."
       else
-        render action: "new" 
+        render action: "new"
       end
   end
 

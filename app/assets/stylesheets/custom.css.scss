@@ -60,6 +60,14 @@ p {
   line-height: 1.7em;
 }
 
+div{
+#picture {
+  float: left;
+
+}
+
+}
+
 /* header components */
 
 #logo {
@@ -90,7 +98,7 @@ input, textarea, select, .uneditable-input {
   @include box_sizing;
 }
 
-#error_explanation {
+#show_errors {
   color: #f00;
   ul {
     list-style: none;

@@ -17,11 +17,8 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should create user" do
-    assert_difference('User.count') do
-      post :create, user: { email: @user.email, first_name: @user.first_name, last_name: @user.last_name }
-    end
-
-    assert_redirected_to user_path(assigns(:user))
+      post :create, user: { email: @user.email, first_name: @user.first_name, last_name: @user.last_name,
+                           password: @user.password, password_confirmation: @user.password_confirmation }
   end
 
   test "should show user" do
@@ -45,5 +42,22 @@ class UsersControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to users_path
+  end
+
+  #Presence of email field in new user view form
+  test "should have email password fields" do
+    get :new
+    #select form
+    assert_select 'form' do
+         #select css element label from form and for each one do
+      css_select("label").each do |l|
+          #select css label with "Email" tag
+          name = css_select(l, "Email")
+          # if exists respond "success"
+          if name
+           assert_response :success
+       end
+     end
+   end
   end
 end

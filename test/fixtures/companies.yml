@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  address: MyString
+  description: MyString
+  exp_id: 1
+
+two:
+  address: MyString
+  description: MyString
+  exp_id: 1

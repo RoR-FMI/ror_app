@@ -1,0 +1,37 @@
+  <%= form_for(@experience) do |f| %>
+    <div id="parent_form">
+      <div class="exp_form">
+        <div class="start_time">
+          <%= f.label :start_time %><br />
+          <div id="start_time<%= val %>" >
+          <%= f.date_select :start_time %>
+          </div>
+        </div>
+        <div class="end_time">
+          <%= f.label :end_time %><br />
+          <div id="end_time<%= val %>">
+          <%= f.date_select :end_time %>
+          </div>
+        </div>
+        <div class="job_title">
+          <%= f.label :job_title %><br />
+          <%= f.text_field :job_title, id: "job_title#{val}" %>
+        </div>
+        <div>
+          <%= render :partial => 'companies/new' %>
+        </div>
+        <div class="description">
+          <%= f.label :job_description %><br />
+          <%= f.text_field :description, id: "description#{val}" %>
+        </div>
+      </div>
+    </div>
+
+    <%= hidden_field_tag :counter, val %>
+    <div class="actions">
+      <%= f.submit "Add this experience to CV", id: "submit_exp_for_cv" %>
+    </div>
+  <% end %>
+  <div id="bttns">
+     <%= button_tag "Add a new experience", class: "btn btn-primary", id: "new_exp_submit" %>
+  </div>

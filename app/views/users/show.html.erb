@@ -1,20 +1,58 @@
-<p id="notice"><%= notice %></p>
+<% if signed_in? %>
+<% provide(:title, "Profile") %>
+<div class="container-fluid">
+  <h2> <%= "#{@user.first_name} #{@user.last_name}" %> </h2>
+  <div class="page-header">
+    <div class="row">
+      <div class="span3">
+        <div class="thumbnail">
+          <img src="/scarlett_ohara.jpeg" alt="">
+        </div>
+      </div>
+  <% if @user.cv.nil? %>
+    </div>
+  </div>
+  <div class="container" id="new_cv">
+    <%= render :partial => "form_for_cv" %>
+      </div>
+    <% else %>
+      <div class="span6">
+        <p>
+        </p>
+      </div>
+    </div>
+  </div class="hero-unit">
+  <div class="row">
+    <div class="span8" id="">
+      <div class="row">
+        <h4 class="page-header"> Experience </h4>
+        <div class="hero-unit" id="experience">
+        </div>
+      </div>
+      <div class="row">
+        <h4 class="page-header"> Education </h4>
+        <div class="hero-unit" id="education">
+        </div>
+      </div>
+       <div class="row">
+        <h4 class="page-header"> Contact </h4>
+        <div class="hero-unit" id="contact">
+        </div>
+      </div>
+    </div>
+    <div class="span2">
+      <h4 class="page-header"> <%= link_to "Friends", '#' %> </h4>
+      <div class="hero-unit" id="friends">
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div class="container-fluid">
+<!-- if the user is not signed in don't show the page, redirect him to sign in and flash a notice-->
+  <% else %>
+    <div class="container alert alert-error">
+      <p> You have to be signed in!
+      </p>
+    </div>
+<% end%>
 
-<p>
-  <b>First name:</b>
-  <%= @user.first_name %>
-</p>
-
-<p>
-  <b>Last name:</b>
-  <%= @user.last_name %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

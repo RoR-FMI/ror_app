@@ -1,0 +1,19 @@
+<div class="cv_form">
+<%= form_for(@cv) do |f| %>
+  <div class="field">
+    <%= f.label :about %><br />
+    <%= f.text_field :about %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_number %><br />
+    <%= f.text_field :phone_number %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_email %><br />
+    <%= f.text_field :contact_email %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Add general informations to CV"%>
+  </div>
+<% end %>
+</div>

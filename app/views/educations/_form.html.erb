@@ -1,0 +1,25 @@
+<%= form_for(@education) do |f| %>
+  <div class="field">
+    <%= f.label :start_time %><br />
+    <%= f.date_select :start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %><br />
+    <%= f.date_select :end_time %>
+  </div>
+  <div class="field">
+    <%= f.label :degree %><br />
+    <%= f.text_field :degree %>
+  </div>
+  <div class="field">
+    <%= f.label :institution %><br />
+    <%= f.text_field :institution %>
+  </div>
+  <div class="field">
+    <%= f.label :activities %><br />
+    <%= f.text_area :activities %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

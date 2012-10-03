@@ -1,0 +1,13 @@
+<%= provide(:title, 'Home') %>
+
+<div class = "center hero-unit" >
+  <h1>WELCOME!</h1>
+    <p>
+      This is a cool app that enables you to connect with your friends and share cvs.
+    </p>
+    <%= link_to "Sign up", '/signup' , class: "btn btn-large btn-primary" %>
+    </br>
+    <h2> This app was written using Rails framework </h2>
+    </br>
+    <%= link_to image_tag("rails.png", alt: "rails_logo", width: "20%", height: "30%"), 'http://rubyonrails.org/'%>
+</div>

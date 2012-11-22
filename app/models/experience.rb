@@ -3,4 +3,6 @@ class Experience < ActiveRecord::Base
 
   has_one :company, :foreign_key => "exp_id"
   belongs_to :cv
+
+  accepts_nested_attributes_for :company
 end

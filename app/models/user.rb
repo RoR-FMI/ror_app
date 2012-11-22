@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   validates :password, length: {minimum: 8}
   validates :password_confirmation, presence: true
 
+
 # private methods for the class
   private
    #create_token method called above

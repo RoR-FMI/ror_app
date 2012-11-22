@@ -1,5 +1,6 @@
 <div class="cv_form">
 <%= form_for(@cv) do |f| %>
+  <%= hidden_field_tag :user_id, @user.id %>
   <div class="field">
     <%= f.label :about %><br />
     <%= f.text_field :about %>
@@ -12,8 +13,11 @@
     <%= f.label :contact_email %><br />
     <%= f.text_field :contact_email %>
   </div>
+  <%= f.fields_for :experiences do |builder| %>
+    <%= render 'experiences/new', f: builder,  :locals => {:val => 0}%>
+  <% end %>
   <div class="actions">
-    <%= f.submit "Add general informations to CV"%>
+    <%= f.submit "Add CV"%>
   </div>
 <% end %>
 </div>

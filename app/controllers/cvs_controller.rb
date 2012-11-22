@@ -25,6 +25,10 @@ class CvsController < ApplicationController
   # GET /cvs/new.json
   def new
     @cv = Cv.new
+    @experience = Experience.new
+    @education = Education.new
+    @company = Company.new
+
   end
 
   # GET /cvs/1/edit
@@ -34,10 +38,10 @@ class CvsController < ApplicationController
 
   def create
     @cv = Cv.new(params[:cv])
-    @cv.user_id = params[:id]
+    @cv.user_id = params[:user_id]
 
       if @cv.save
-      redirect_to @user
+      redirect_to '/users/'+(@cv.user_id).to_s
       flash[:notice] = "Your CV was successufully saved!"
       else
         flash[:notice] = "Something is wrong!"

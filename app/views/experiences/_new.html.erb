@@ -1,2 +1,35 @@
 <legend> Experiences </legend>
-<%= render :partial => 'experiences/form', :locals => {:val => 0} %>
+<!-- <#%= render :partial => 'experiences/form', :locals => {:val => 0} %> -->
+ <div id="parent_form">
+      <div class="exp_form">
+        <div class="start_time">
+          <%= f.label :start_time %><br />
+          <div id="start_time<%= val %>" >
+          <%= f.date_select :start_time %>
+          </div>
+        </div>
+        <div class="end_time">
+          <%= f.label :end_time %><br />
+          <div id="end_time<%= val %>">
+          <%= f.date_select :end_time %>
+          </div>
+        </div>
+        <div class="job_title">
+          <%= f.label :job_title %><br />
+          <%= f.text_field :job_title, id: "job_title#{val}" %>
+        </div>
+        <div>
+        <%= f.fields_for :companies do |builder| %>
+          <%= render 'companies/form_for_exp', f: builder %>
+        <% end %>
+        </div>
+        <div class="description">
+          <%= f.label :job_description %><br />
+          <%= f.text_field :description, id: "description#{val}" %>
+        </div>
+      </div>
+    </div>
+    <%= hidden_field_tag :counter, val %>
+  <div id="bttns">
+     <%= button_tag "Add a new experience", class: "btn btn-primary", id: "new_exp_submit" %>
+  </div>

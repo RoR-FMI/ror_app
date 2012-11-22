@@ -10,41 +10,9 @@
         </div>
       </div>
   <% if @user.cv.nil? %>
-    </div>
-  </div>
-  <div class="container" id="new_cv">
-    <%= render :partial => "form_for_cv" %>
-      </div>
-    <% else %>
-      <div class="span6">
-        <p>
-        </p>
-      </div>
-    </div>
-  </div class="hero-unit">
-  <div class="row">
-    <div class="span8" id="">
-      <div class="row">
-        <h4 class="page-header"> Experience </h4>
-        <div class="hero-unit" id="experience">
-        </div>
-      </div>
-      <div class="row">
-        <h4 class="page-header"> Education </h4>
-        <div class="hero-unit" id="education">
-        </div>
-      </div>
-       <div class="row">
-        <h4 class="page-header"> Contact </h4>
-        <div class="hero-unit" id="contact">
-        </div>
-      </div>
-    </div>
-    <div class="span2">
-      <h4 class="page-header"> <%= link_to "Friends", '#' %> </h4>
-      <div class="hero-unit" id="friends">
-      </div>
-    </div>
+    <%= render 'form_new_user'%>
+  <% else %>
+    <%= render 'form_not_new_user' %>
   <% end %>
   </div>
 </div class="container-fluid">

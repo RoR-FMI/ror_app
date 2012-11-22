@@ -1,0 +1,42 @@
+
+from github import Github
+g = Github(username,passwd)
+for repo in g.get_user().get.repos():
+    print repo.name
+u = g.get_user()
+repos = u.get_repos()
+repo = repos.get_page(1)
+pulls = repo.get_pulls()
+p = pulls[]
+p.get_files()
+p.additions
+p.deletions
+p.changed_files
+
+
+for fisiere in p.get_files():
+   fis = fisiere
+   print fis.filename
+
+#pana acum am gasit fisierul. acum luam path/filename si cautam comentariile
+
+fis.blob_url #iti returneaza adresa de pe github pentru fisierul tau
+
+#iti returneaza continutul fisierului
+u = "https://raw.github.com/fmiunibuc/sample_app/0bbd13f8a39b2dcb1f8538de5dc765558da50174/README.rdoc"
+
+import urllib
+text = urllib.urlopen(u).read()
+
+text.split("\n")
+
+   for line in text.split("\n"):
+       line = line.strip()
+       if !line.startswith("def")
+           if ('#' in line):
+              met_com += 1
+           if met_com = 0:
+              #send email
+       elif met_com = 0
+ 
+   
